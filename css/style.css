@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-body {
+body,
+h2,
+p {
     padding: 0;
     margin: 0;
     font-family: 'Roboto';
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 #header {
@@ -17,15 +26,8 @@ body {
     height: 23px;
 }
 
-.menu-list {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
 .menu-item {
-    padding: 16px 7px;
+    padding: 16px 14px;
     font-weight: 500;
     font-size: 11px;
     line-height: 13px;
@@ -61,4 +63,87 @@ body {
     background: #4486db;
     color: #FFFFFF;
     transition: all ease-in .2s;
+}
+
+.container {
+    width: 600px;
+    margin: auto;
+}
+
+.container h2 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+    margin-top: 56px;
+    margin-bottom: 40px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col p {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #9F9F9F;
+}
+
+.currency-types {
+    margin-top: 14px;
+    margin-bottom: 25px;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.currency-types li {
+    height: 30px;
+    padding: 0 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid #E5E5E5;
+    font-size: 12px;
+    line-height: 14px;
+    color: #C6C6C6;
+}
+
+.active {
+    background-color: #4486db;
+    color: #FFFFFF !important;
+}
+
+.currency-types li:last-child {
+    border-right: 0;
+}
+
+.currency-types li:hover {
+    cursor: pointer;
+}
+
+.result {
+    width: 263px;
+    height: 102px;
+    border: 1px solid #E5E5E5;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.result p {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+    padding: 14px 0 15px 14px;
+}
+
+.result span {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: #C6C6C6;
+    padding-left: 14px;
 }
