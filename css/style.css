@@ -132,12 +132,16 @@ ul {
     border-radius: 3px;
 }
 
-.result p {
+.result input {
+    width: 100%;
     font-weight: 700;
     font-size: 36px;
     line-height: 42px;
     color: #000000;
     padding: 14px 0 15px 14px;
+    box-sizing: border-box;
+    border: 0;
+    outline: none;
 }
 
 .result span {

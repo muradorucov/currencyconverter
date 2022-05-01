@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task | Currency Convert</title>
 
-    <link rel="shortcut icon" type="x-icon" href="./icons/icon.png">
+    <link rel="shortcut icon" type="x-icon" href="./img/icon.png">
 
     <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -38,27 +38,27 @@
         <div class="row">
             <div class="col">
                 <p>У меня есть</p>
-                <ul class="currency-types">
-                    <li class="">RUB</li>
+                <ul class="currency-types have">
+                    <li class="active">RUB</li>
                     <li class="">USD</li>
                     <li class="">EUR</li>
                     <li class="">GBP</li>
                 </ul>
                 <div class="result">
-                    <p>5000</p>
+                    <input class="result-have" type="number">
                     <span>1 RUB = 0.0135 USD</span>
                 </div>
             </div>
             <div class="col">
-                <p>У меня есть</p>
-                <ul class="currency-types">
+                <p>Хочу приобрести</p>
+                <ul class="currency-types want-to-buy">
                     <li class="">RUB</li>
-                    <li class="">USD</li>
+                    <li class="active">USD</li>
                     <li class="">EUR</li>
                     <li class="">GBP</li>
                 </ul>
                 <div class="result">
-                    <p>67.6685</p>
+                    <input class="result-buy" type="number">
                     <span>1 USD = 73.8896 RUB</span>
                 </div>
             </div>
