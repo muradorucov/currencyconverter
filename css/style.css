@@ -158,7 +158,8 @@ h2 {
     border-radius: 3px;
 }
 
-.result input {
+.result input,
+.result p {
     width: 100%;
     font-weight: 700;
     font-size: 36px;
@@ -168,6 +169,7 @@ h2 {
     box-sizing: border-box;
     border: 0;
     outline: none;
+    overflow: hidden;
 }
 
 .result span {

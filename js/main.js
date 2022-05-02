@@ -17,7 +17,7 @@ exitBtn.addEventListener('click', () => {
 // Currency Conventor start
 let left = document.querySelector(".left-input");
 let leftSpan = document.querySelector('.left-result span')
-let right = document.querySelector(".right-input");
+let right = document.querySelector(".right");
 let rightSpan = document.querySelector('.right-result span')
 let leftBtn = document.querySelectorAll(".btnLeft li")
 let rightBtn = document.querySelectorAll(".btnRight li")
@@ -32,7 +32,7 @@ fetch(`https://api.exchangerate.host/latest?base=${defaultCurrency1}&symbols=${d
         let ratesValue = Object.values(rate)
         left.addEventListener("keyup", () => {
             let inputValue = Number(left.value)
-            right.value = inputValue* ratesValue
+            right.innerHTML = inputValue * ratesValue
         })
     })
 
@@ -51,7 +51,7 @@ leftBtn.forEach((item) => {
                 let rate = data.rates
                 let ratesValue = Object.values(rate)
                 let inputValue = Number(left.value)
-                right.value = inputValue * ratesValue
+                right.innerHTML = inputValue * ratesValue
                 leftSpan.innerHTML = `1 ${defaultCurrency1} = ${ratesValue} ${defaultCurrency2}`
             })
     })
@@ -70,7 +70,7 @@ rightBtn.forEach((item) => {
                 let rate = data.rates
                 let ratesValue = Object.values(rate)
                 let inputValue = Number(left.value)
-                right.value = inputValue / ratesValue
+                right.innerHTML = inputValue / ratesValue
                 rightSpan.innerHTML = `1 ${defaultCurrency2} = ${ratesValue} ${defaultCurrency1}`
             })
     })
