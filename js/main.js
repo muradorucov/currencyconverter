@@ -1,67 +1,79 @@
-let have = document.querySelector(".result-have");
-let buy = document.querySelector(".result-buy");
-let btnsHave = document.querySelectorAll('.have li');
-let btnsBuy = document.querySelectorAll('.want-to-buy li');
-let defaultResult1 = "RUB"
-let defaultResult2 = "USD"
-let inputValue1 = 0
-let inputValue2 = 0
+// Responsive Menu start
+let menu = document.querySelector('.menu')
+let menuBtn = document.querySelector('.viewBtn')
+let exitBtn = document.querySelector('.exitBtn')
+menuBtn.addEventListener('click', () => {
+    menu.style.display = 'block';
+    exitBtn.style.display = 'block';
+})
 
-fetch(`https://api.exchangerate.host/latest?base=${defaultResult1}&symbols=${defaultResult2}`)
+exitBtn.addEventListener('click', () => {
+    menu.style.display = 'none';
+    exitBtn.style.display = 'none';
+})
+
+// Responsive Menu end
+
+// Currency Conventor start
+let left = document.querySelector(".left-input");
+let leftSpan = document.querySelector('.left-result span')
+let right = document.querySelector(".right-input");
+let rightSpan = document.querySelector('.right-result span')
+let leftBtn = document.querySelectorAll(".btnLeft li")
+let rightBtn = document.querySelectorAll(".btnRight li")
+let defaultCurrency1 = "RUB"
+let defaultCurrency2 = "USD"
+let inputValue;
+
+fetch(`https://api.exchangerate.host/latest?base=${defaultCurrency1}&symbols=${defaultCurrency2}`)
     .then(res => res.json())
     .then(data => {
         let rate = data.rates
         let ratesValue = Object.values(rate)
-        let ratesKeys = Object.keys(rate)
-        have.addEventListener("keyup", () => {
-            let inputValue1 = Number(have.value)
-            let inputValue2 = (buy.value)
-            buy.value = inputValue1 * ratesValue
+        left.addEventListener("keyup", () => {
+            let inputValue = Number(left.value)
+            right.value = inputValue * ratesValue
         })
-
     })
 
 
-btnsHave.forEach((item, index) => {
+leftBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
         let childBtn = e.target.parentElement.children
         for (let i = 0; i < childBtn.length; i++) {
             childBtn[i].classList.remove("active")
         }
         e.target.classList.add('active')
-        defaultResult1 = e.target.id
-        fetch(`https://api.exchangerate.host/latest?base=${defaultResult1}&symbols=${defaultResult2}`)
+        defaultCurrency1 = e.target.id
+        fetch(`https://api.exchangerate.host/latest?base=${defaultCurrency1}&symbols=${defaultCurrency2}`)
             .then(res => res.json())
             .then(data => {
                 let rate = data.rates
                 let ratesValue = Object.values(rate)
-                let ratesKeys = Object.keys(rate)
-                let inputValue1 = Number(have.value)
-                let inputValue2 = (buy.value)
-                buy.value = inputValue1 * ratesValue
-
-
+                let inputValue = Number(left.value)
+                right.value = inputValue * ratesValue
+                leftSpan.innerHTML = `1 ${defaultCurrency1} = ${ratesValue} ${defaultCurrency2}`
             })
     })
 })
-btnsBuy.forEach((item, index) => {
+rightBtn.forEach((item) => {
     item.addEventListener("click", (e) => {
         let childBtn = e.target.parentElement.children
         for (let i = 0; i < childBtn.length; i++) {
             childBtn[i].classList.remove("active")
         }
         e.target.classList.add('active')
-        defaultResult2 = e.target.id
-        fetch(`https://api.exchangerate.host/latest?base=${defaultResult2}&symbols=${defaultResult1}`)
+        defaultCurrency2 = e.target.id
+        fetch(`https://api.exchangerate.host/latest?base=${defaultCurrency2}&symbols=${defaultCurrency1}`)
             .then(res => res.json())
             .then(data => {
                 let rate = data.rates
                 let ratesValue = Object.values(rate)
-                let ratesKeys = Object.keys(rate)
-                console.log(data);
-                let inputValue1 = Number(have.value)
-                let inputValue2 = Number(buy.value)
-                have.value = inputValue2 * ratesValue
+                let inputValue = Number(left.value)
+                right.value = inputValue / ratesValue
+                rightSpan.innerHTML = `1 ${defaultCurrency2} = ${ratesValue} ${defaultCurrency1}`
             })
     })
 })
+
+// Currency Conventor end

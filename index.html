@@ -19,6 +19,7 @@
         </div>
         <div class="menu">
             <ul class="menu-list">
+                <button class="exitBtn">Exit</button>
                 <li class="menu-item">БАНК</li>
                 <li class="menu-item">БИЗНЕС</li>
                 <li class="menu-item">ИНВЕСТИЦИИ</li>
@@ -29,8 +30,10 @@
             </ul>
         </div>
         <div class="login">
-            <button>ВОЙТИ</button>
+            <button class="loginBtn">ВОЙТИ</button>
+            <button class="viewBtn">Menu</button>
         </div>
+
     </header>
 
     <div class="container">
@@ -38,28 +41,28 @@
         <div class="row">
             <div class="col">
                 <p>У меня есть</p>
-                <ul class="currency-types have">
-                    <li class="active">RUB</li>
-                    <li class="">USD</li>
-                    <li class="">EUR</li>
-                    <li class="">GBP</li>
+                <ul class="currency-types btnLeft">
+                    <li class="active" id="RUB">RUB</li>
+                    <li class="" id="USD">USD</li>
+                    <li class="" id="EUR">EUR</li>
+                    <li class="" id="GBP">GBP</li>
                 </ul>
-                <div class="result">
-                    <input class="result-have" type="number">
-                    <span>1 RUB = 0.0135 USD</span>
+                <div class="result left-result">
+                    <input class="left-input" type="number">
+                    <span>1 RUB = 0.014017 USD</span>
                 </div>
             </div>
             <div class="col">
                 <p>Хочу приобрести</p>
-                <ul class="currency-types want-to-buy">
-                    <li class="">RUB</li>
-                    <li class="active">USD</li>
-                    <li class="">EUR</li>
-                    <li class="">GBP</li>
+                <ul class="currency-types btnRight">
+                    <li class="" id="RUB">RUB</li>
+                    <li class="active" id="USD">USD</li>
+                    <li class="" id="EUR">EUR</li>
+                    <li class="" id="GBP">GBP</li>
                 </ul>
-                <div class="result">
-                    <input class="result-buy" type="number">
-                    <span>1 USD = 73.8896 RUB</span>
+                <div class="result right-result">
+                    <input class="right-input">
+                    <span>1 USD = 71.343678 RUB</span>
                 </div>
             </div>
         </div>
