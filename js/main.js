@@ -23,7 +23,8 @@ let leftBtn = document.querySelectorAll(".btnLeft li")
 let rightBtn = document.querySelectorAll(".btnRight li")
 let defaultCurrency1 = "RUB"
 let defaultCurrency2 = "USD"
-let inputValue;
+let inputValueLeft;
+let inputValueRight;
 
 fetch(`https://api.exchangerate.host/latest?base=${defaultCurrency1}&symbols=${defaultCurrency2}`)
     .then(res => res.json())
@@ -31,8 +32,8 @@ fetch(`https://api.exchangerate.host/latest?base=${defaultCurrency1}&symbols=${d
         let rate = data.rates
         let ratesValue = Object.values(rate)
         left.addEventListener("keyup", () => {
-            let inputValue = Number(left.value)
-            right.value = inputValue * ratesValue
+            let inputValueLeft = Number(left.value)
+            right.value = inputValueLeft * ratesValue
         })
     })
 
@@ -50,8 +51,8 @@ leftBtn.forEach((item) => {
             .then(data => {
                 let rate = data.rates
                 let ratesValue = Object.values(rate)
-                let inputValue = Number(left.value)
-                right.value = inputValue * ratesValue
+                let inputValueLeft = Number(left.value)
+                right.value = inputValueLeft * ratesValue
                 leftSpan.innerHTML = `1 ${defaultCurrency1} = ${ratesValue} ${defaultCurrency2}`
             })
     })
@@ -69,8 +70,8 @@ rightBtn.forEach((item) => {
             .then(data => {
                 let rate = data.rates
                 let ratesValue = Object.values(rate)
-                let inputValue = Number(left.value)
-                right.value = inputValue / ratesValue
+                let inputValueRight = Number(right.value)
+                left.value = inputValueRight / ratesValue
                 rightSpan.innerHTML = `1 ${defaultCurrency2} = ${ratesValue} ${defaultCurrency1}`
             })
     })
