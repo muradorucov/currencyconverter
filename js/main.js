@@ -13,8 +13,10 @@ onlineConvert()
 
 
 leftInputData.addEventListener("keyup", () => {
-    if (leftInputData.value[0] === '0') {
-        leftInputData.value = leftInputData.value.substring(1)
+    val = leftInputData.value
+    for (let i = 0; i < val.length; i++) {
+        if (val[0] === '0')
+            leftInputData.value = leftInputData.value.substring(1)
     }
     onlineConvert()
 })
