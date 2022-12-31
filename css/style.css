@@ -171,6 +171,9 @@ h2 {
     outline: none;
     overflow: hidden;
 }
+.result input:disabled{
+    background-color: transparent;
+}
 
 .result span {
     font-weight: 400;
